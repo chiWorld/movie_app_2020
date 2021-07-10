@@ -9,6 +9,10 @@ function Food({ name, picture }) {
   );
 }
 
+function renderFood(dish) {
+  return <Food name={dish.name} picture={dish.image} />;
+}
+
 function App() {
   return (
     <div>
