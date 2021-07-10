@@ -9,6 +9,14 @@ function Food({ name, picture }) {
   );
 }
 
+function App() {
+  return (
+    <div>
+        {foodILike.map(renderFood)}
+    </div>
+  );
+}
+
 const foodILike = [
   {
     name : 'Kimchi',
@@ -23,15 +31,5 @@ const foodILike = [
     image : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.z9ft1sb7e-dWAAnUh7igAAHaFA%26pid%3DApi&f=1',
   },
 ];
-
-function App() {
-  return (
-    <div>
-        {foodILike.map(dish => (
-         <Food name={dish.name} picture={dish.image} />
-        ))}
-    </div>
-  );
-}
 
 export default App;
