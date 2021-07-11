@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Movie from './Movie';
 
 class App extends React.Component {s
   state = {
@@ -25,9 +26,26 @@ class App extends React.Component {s
     this.getMovies();
   }
   render() { /* 리액트 앱이 실행되면 최초로 render()함수가 실행됨 */
-    const { isLoading } = this.state;
+    const { isLoading, movies } = this.state;
     /* isLoading이 true이면 Loading, false이면 We are ready가 화면에 뿌려짐 */
-    return <div>{isLoading ? 'Loading...' : 'We are ready'}</div>;
+    return (
+      /* Movie.map()에 전달한 함수가 <Movie />를 반환함 */
+      <div>
+        {isLoading ? 'Loading...' : movies.map((movie) => {
+          console.log(movie); 
+          return (
+            <Movie 
+              key={movie.id}
+              id={movie.id}
+              year={movie.year}
+              title={movie.title}
+              summary={movie.summary}
+              poster={movie.medium.cover.image}
+            />
+          );
+          })}
+      </div>
+    );
   }
 }
 
